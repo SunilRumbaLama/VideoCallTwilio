@@ -1,0 +1,103 @@
+<ion-view view-title="VideoCall">
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-item class="Profileholder">
+                <div class="overlay"></div>
+                <span style="color:white">use token after you token on another device:</span>
+                <div class="row ">
+               		<div class="col  userdatail">
+                        <button class="button button-stable primaryColor profileBtn openBtn"  ng-click="getToken()"><span class="ion-videocamera ion"></span>Get Token </button><span>{{token}}</span>
+                    </div>
+                    </div>
+                    <div class="row">
+	                    <div class="col  userdatail">
+	                        <button class="button button-stable primaryColor profileBtn openBtn"  ng-click="callUser(beingCalledTwilioID);modal1.show();"><span class="ion-videocamera ion"></span>Make a call</button>
+	                    </div>
+                	</div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+
+    <script id="templates/modal-1.html" type="text/ng-template">
+
+        <div class="modal transparent">
+            <ion-content class="popbg">
+                    <div class="callingHolder">
+                    <div class="callingInner">
+
+                <div class="contactusImgHolder ">
+                    <img src="img/me.jpg" alt="" class="img-rounded center-block">
+
+                </div>
+                <h2 class="center white">Calling</h2>
+                        <label class="buttontext"> Decline</label><!--I couldn't find anything to reject the sent invitation //sighh-->
+                </div>
+            </div>
+            </div>
+            </ion-content>
+        </div>
+    </script>
+
+    <script id="templates/modal-2.html" type="text/ng-template">
+        <ion-modal-view class="modal image-modal transparent">
+            <ion-pane class="transparent">
+            <div class="headerPara">
+                <h1 style="color:white">David Allan Hanis</h1>
+                <p style="color:white">is requesting a video call with you...</p>
+            </div>
+            <div class="imgoverlay"></div>
+                <img ng-src="{{imageSrc}}"  class="fullscreen-image" />
+                <div class=" row customModelFooter">
+                    <div class="col col-33">
+                        <a class="button button-icon" ng-click="rejectCall()"><img style="height:50px;width:50px" src="img/reject.png" />
+                        </a>
+                    </div>
+                    <div class="col col-33" style="text-align:center;">
+                        <a class="button button-icon" ng-click=""><img style="height:50px;width:50px" src="img/message.png" />
+                        </a>
+                    </div>
+                    <div class="col col-33" style="margin-left:15%;">
+                        <a class="button button-icon" ng-click="acceptCall();"><img style="height:50px;width:50px" src="img/accept.png" />
+                        </a>
+                    </div>
+                </div>
+            </ion-pane>
+
+        </ion-modal-view>
+    </script>
+
+    <script id="templates/final-modal.html" type="text/ng-template">
+        <ion-modal-view class="popbg">
+            <ion-header-bar class="bar bar-header bar-dark">
+                <h1 class="title">Video-Chat Preview</h1>
+            </ion-header-bar>
+            <ion-content class="padding">
+                <div class="modal  transparent">
+                    <div class="upwrapper " >
+                    <div class="inline-block fleft">
+                <div class="btnholder center">
+
+
+                    <button class="button-clear " ng-click="hangCall();callRefresh();" style="display:block;margin-top:25px;width:80px;"><img style="height:50px;width:50px;margin-top:-22px;" src="img/hangup.png" />
+                     <label class="buttontext center"> Hang Up</label>
+                    </button>
+
+
+                </div>
+                        </div>
+                            <div class="inline-block fright">
+                    <div id="preview">
+                        <div id="local-media"></div>
+                    </div>
+                </div>
+            </div>
+
+                    <div id="remote-media"></div>
+                </div>
+
+            </ion-content>
+        </ion-modal-view>
+    </script>
+
+</ion-view>
